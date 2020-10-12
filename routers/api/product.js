@@ -12,7 +12,7 @@ const checkObjectId = require('../../middleware/checkObjectId');
 // @route    GET api/product
 // @desc     Get all product
 // @access   Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const products = await Product.find()
       .sort({ date: -1 })

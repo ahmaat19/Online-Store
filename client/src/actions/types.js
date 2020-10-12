@@ -14,3 +14,6 @@ export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_PASSWORD_FAIL = 'CHANGE_PASSWORD_FAIL';
 
 export const LOGOUT = 'LOGOUT';
+
+export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const PRODUCT_ERROR = 'PRODUCT_ERROR';
