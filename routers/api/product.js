@@ -75,7 +75,7 @@ router.post(
         filePath: `/uploads/${Date.now() + imageSource.name}`,
       };
 
-      if (reqData.mimeType !== 'image/jpeg') {
+      if (reqData.mimeType !== 'image/png') {
         return res.status(400).json({
           errors: [{ msg: 'Please, upload only JPEG, JPG, PNG images' }],
         });

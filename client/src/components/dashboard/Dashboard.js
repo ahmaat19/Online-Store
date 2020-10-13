@@ -22,7 +22,7 @@ const Dashboard = ({ getProducts, product_obj: { products, loading } }) => {
     <div className=''>
       <Hero />
       <Arrivals products={products} />
-      <Trands products={products} />
+      {/* <Trands products={products} /> */}
       <Subscribe />
     </div>
   );

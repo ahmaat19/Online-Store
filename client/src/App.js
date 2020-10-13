@@ -58,7 +58,11 @@ const App = () => {
             <PrivateRoute path='/change-password' component={ChangePassword} /> */}
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/collection' component={Collection} />
-            <Route exact path='/product-details' component={ProductDetails} />
+            <Route
+              exact
+              path='/product-details/:id'
+              component={ProductDetails}
+            />
           </Layout>
         </Switch>
       </Router>

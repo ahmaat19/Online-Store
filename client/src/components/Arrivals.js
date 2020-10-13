@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import InfoIcon from '@material-ui/icons/Info';
 
 const Arrivals = ({ products }) => {
   return (
@@ -16,7 +17,7 @@ const Arrivals = ({ products }) => {
             return (
               <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
                 <div
-                  id='product-sub'
+                  id={`_${product._id}`}
                   className='carousel slide'
                   data-ride='carousel'
                 >
@@ -39,7 +40,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-prev'
-                    href='#product-sub'
+                    href={`#_${product._id}`}
                     role='button'
                     data-slide='prev'
                   >
@@ -52,7 +53,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-next'
-                    href='#product-sub'
+                    href={`#_${product._id}`}
                     role='button'
                     data-slide='next'
                   >
@@ -66,21 +67,32 @@ const Arrivals = ({ products }) => {
                 <h6 className='pt-3 text-center'>{product.name}</h6>
                 <div className='content-price d-flex px-5 align-self-stretch justify-content-center'>
                   <ButtonGroup>
-                    <Button variant='contained' color='primary'>
-                      ${product.price}
-                    </Button>
-                    <Button
-                      variant='contained'
-                      startIcon={<ShoppingCartIcon />}
-                      color='secondary'
-                    >
-                      BUY NOW
-                    </Button>
+                    <Link to={`product-details/${product._id}`}>
+                      <Button variant='contained' color='primary'>
+                        ${product.price}
+                      </Button>
+                    </Link>
+
+                    <Link to={`product-details/${product._id}`}>
+                      <Button
+                        variant='contained'
+                        startIcon={<InfoIcon />}
+                        color='secondary'
+                      >
+                        DETAILS
+                      </Button>
+                    </Link>
                   </ButtonGroup>
                 </div>
               </div>
             );
           })}
+
+        <Link to='/collection' className='text-center py-2 my-4 text-uppercase'>
+          <Button variant='contained' color='primary' disableElevation>
+            View More +
+          </Button>
+        </Link>
       </div>
     </div>
   );
