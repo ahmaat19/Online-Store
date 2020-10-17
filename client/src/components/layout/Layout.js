@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import logo from './logo.jpg';
+// import logo from './logo.jpg';
 import Delivery from '../Delivery';
 
 // Material UI Icons
@@ -22,7 +22,7 @@ const Navbar = ({
     <ul className='navbar-nav mr-right mb-2 mb-lg-0'>
       <li className='nav-item'>
         {' '}
-        <a href='' className='nav-link'>
+        <a href='?#' className='nav-link'>
           {' '}
           Welcome {user && user.name}
         </a>

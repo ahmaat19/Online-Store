@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Subscribe = (props) => {
   return (
@@ -9,16 +9,16 @@ const Subscribe = (props) => {
       <p className='text-center py-3'>
         Get updates by subscribe our weekly newsletter
       </p>
-      <div class='input-group mb-3'>
+      <div className='input-group mb-3'>
         <input
           type='text'
-          class='form-control bg-transparent text-light'
+          className='form-control bg-transparent text-light'
           placeholder="Recipient's username"
           aria-label="Recipient's username"
           aria-describedby='basic-addon2'
         />
         <span
-          class='input-group-text bg-transparent text-light'
+          className='input-group-text bg-transparent text-light'
           id='basic-addon2'
         >
           @example.com
@@ -28,6 +28,6 @@ const Subscribe = (props) => {
   );
 };
 
-Subscribe.propTypes = {};
+// Subscribe.propTypes = {};
 
 export default Subscribe;

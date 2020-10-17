@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function Footer(props) {
@@ -110,6 +110,6 @@ function Footer(props) {
   );
 }
 
-Footer.propTypes = {};
+// Footer.propTypes = {};
 
 export default Footer;

@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import InfoIcon from '@material-ui/icons/Info';
 
 const Arrivals = ({ products }) => {
@@ -15,7 +15,7 @@ const Arrivals = ({ products }) => {
         {products &&
           products.map((product) => {
             return (
-              <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
+              <div className='col-lg-4 col-md-6 col-sm-6 col-12' key={product._id}>
                 <div
                   id={`_${product._id}`}
                   className='carousel slide'
@@ -98,6 +98,6 @@ const Arrivals = ({ products }) => {
   );
 };
 
-Arrivals.propTypes = {};
+// Arrivals.propTypes = {};
 
 export default Arrivals;

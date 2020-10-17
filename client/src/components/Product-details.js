@@ -23,9 +23,9 @@ const ProductDetails = ({
     <div className='container'>
       <div className='row my-5 gy-5'>
         {products &&
-          products.map((product) => {
-            if (product._id === match.params.id) {
-              return (
+          products.map((product) => 
+            product._id === match.params.id &&
+               (
                 <>
                   <div
                     className='col-lg-4 col-md-6 col-sm-6 col-12'
@@ -63,9 +63,9 @@ const ProductDetails = ({
                     </div>
                   </div>
                 </>
-              );
-            }
-          })}
+              )
+  
+          )}
       </div>
     </div>
   );

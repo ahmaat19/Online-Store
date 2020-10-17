@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Arrivals from '../Arrivals';
-import Trands from '../Trand';
 import Spinner from '../layout/Spinner';
 import Subscribe from '../Subscribe';
 import Hero from '../Hero';
@@ -22,7 +21,6 @@ const Dashboard = ({ getProducts, product_obj: { products, loading } }) => {
     <div className=''>
       <Hero />
       <Arrivals products={products} />
-      {/* <Trands products={products} /> */}
       <Subscribe />
     </div>
   );
@@ -30,7 +28,6 @@ const Dashboard = ({ getProducts, product_obj: { products, loading } }) => {
 
 Dashboard.propTypes = {
   product_obj: PropTypes.object.isRequired,
-  products: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
