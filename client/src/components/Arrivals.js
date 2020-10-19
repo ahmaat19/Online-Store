@@ -17,7 +17,7 @@ const Arrivals = ({ products }) => {
             return (
               <div className='col-lg-4 col-md-6 col-sm-6 col-12' key={product._id}>
                 <div
-                  id={`_${product._id}`}
+            
                   className='carousel slide'
                   data-ride='carousel'
                 >
@@ -40,7 +40,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-prev'
-                    href={`#_${product._id}`}
+                    href=""
                     role='button'
                     data-slide='prev'
                   >
@@ -53,7 +53,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-next'
-                    href={`#_${product._id}`}
+                    href=""
                     role='button'
                     data-slide='next'
                   >

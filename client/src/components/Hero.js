@@ -3,11 +3,11 @@ import React from 'react';
 
 const Hero = (props) => {
   return (
-    <div id='top-slide' className='carousel slide' data-ride='carousel'>
+    <div id='' className='carousel slide' data-ride='carousel'>
       <ol className='carousel-indicators'>
-        <li data-target='#top-slide' data-slide-to='0' className='active'></li>
-        <li data-target='#top-slide' data-slide-to='1'></li>
-        <li data-target='#top-slide' data-slide-to='2'></li>
+        <li data-target='' data-slide-to='0' className='active'></li>
+        <li data-target='' data-slide-to='1'></li>
+        <li data-target='' data-slide-to='2'></li>
       </ol>
       <div className='carousel-inner'>
         <div className='carousel-item active'>
@@ -48,7 +48,7 @@ const Hero = (props) => {
       </div>
       <a
         className='carousel-control-prev'
-        href='#top-slide'
+        href=''
         role='button'
         data-slide='prev'
       >
@@ -57,7 +57,7 @@ const Hero = (props) => {
       </a>
       <a
         className='carousel-control-next'
-        href='#top-slide'
+        href=''
         role='button'
         data-slide='next'
       >

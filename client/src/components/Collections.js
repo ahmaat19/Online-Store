@@ -26,7 +26,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
             return (
               <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
                 <div
-                  id={`_${product._id}`}
+                  
                   className='carousel slide'
                   data-ride='carousel'
                 >
@@ -49,7 +49,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
                   <a
                     className='carousel-control-prev'
-                    href={`#_${product._id}`}
+                    href=""
                     role='button'
                     data-slide='prev'
                   >
@@ -62,7 +62,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
                   <a
                     className='carousel-control-next'
-                    href={`#_${product._id}`}
+                    href=""
                     role='button'
                     data-slide='next'
                   >
