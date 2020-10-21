@@ -52,7 +52,6 @@ svg {
 /* login */
 
 .container__body {
-  height: 80vh;
   display: grid;
   place-items: center;
 }

@@ -25,11 +25,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
           products.map((product) => {
             return (
               <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
-                <div
-                  
-                  className='carousel slide'
-                  data-ride='carousel'
-                >
+                <div className='carousel slide' data-ride='carousel'>
                   <div className='carousel-inner'>
                     <div className='carousel-item '>
                       <img
@@ -49,7 +45,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
                   <a
                     className='carousel-control-prev'
-                    href=""
+                    href=''
                     role='button'
                     data-slide='prev'
                   >
@@ -62,7 +58,7 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
                   <a
                     className='carousel-control-next'
-                    href=""
+                    href=''
                     role='button'
                     data-slide='next'
                   >
@@ -111,7 +107,6 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
 Collections.propTypes = {
   product_obj: PropTypes.object.isRequired,
-  products: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import logo from './logo.jpg';
 import Delivery from '../Delivery';
+import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Material UI Icons
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -26,6 +27,22 @@ const Navbar = ({
           {' '}
           Welcome {user && user.name}
         </a>
+      </li>
+
+      <li className='nav-item'>
+        <Link to='/collection' className='nav-link'>
+          Products
+        </Link>
+      </li>
+      <li className='nav-item'>
+        <Link to='/' className='nav-link'>
+          About
+        </Link>
+      </li>
+      <li className='nav-item'>
+        <Link to='/' className='nav-link'>
+          Contact
+        </Link>
       </li>
 
       <li className='nav-item'>
@@ -56,23 +73,18 @@ const Navbar = ({
     <>
       <ul className='navbar-nav mr-auto mb-2 py-3 mb-lg-0'>
         <li className='nav-item'>
-          <Link to='/' className='nav-link'>
-            HOME
-          </Link>
-        </li>
-        <li className='nav-item'>
           <Link to='/collection' className='nav-link'>
-            SHOP FULL
+            Products
           </Link>
         </li>
         <li className='nav-item'>
           <Link to='/' className='nav-link'>
-            ABOUT
+            About
           </Link>
         </li>
         <li className='nav-item'>
           <Link to='/' className='nav-link'>
-            CONTACT
+            Contact
           </Link>
         </li>
       </ul>
@@ -90,7 +102,7 @@ const Navbar = ({
 
   return (
     <>
-      <nav className='navbar navbar-expand-md py-3 shadow-lg sticky-top'>
+      <nav className='navbar navbar-expand-lg py-3 shadow-lg sticky-top'>
         <div className='container'>
           <button
             className='navbar-toggler'

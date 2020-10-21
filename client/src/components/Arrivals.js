@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -15,12 +15,11 @@ const Arrivals = ({ products }) => {
         {products &&
           products.map((product) => {
             return (
-              <div className='col-lg-4 col-md-6 col-sm-6 col-12' key={product._id}>
-                <div
-            
-                  className='carousel slide'
-                  data-ride='carousel'
-                >
+              <div
+                className='col-lg-4 col-md-6 col-sm-6 col-12'
+                key={product._id}
+              >
+                <div className='carousel slide' data-ride='carousel'>
                   <div className='carousel-inner'>
                     <div className='carousel-item '>
                       <img
@@ -40,7 +39,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-prev'
-                    href=""
+                    href=''
                     role='button'
                     data-slide='prev'
                   >
@@ -53,7 +52,7 @@ const Arrivals = ({ products }) => {
 
                   <a
                     className='carousel-control-next'
-                    href=""
+                    href=''
                     role='button'
                     data-slide='next'
                   >
@@ -98,6 +97,8 @@ const Arrivals = ({ products }) => {
   );
 };
 
-// Arrivals.propTypes = {};
+Arrivals.propTypes = {
+  products: PropTypes.array.isRequired,
+};
 
 export default Arrivals;

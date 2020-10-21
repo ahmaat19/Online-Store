@@ -1,7 +1,7 @@
 {
-  "name": "mern-stack-boilerplate",
+  "name": "online-store",
   "version": "1.0.0",
-  "description": "Complete MERN-Stack boilerplate",
+  "description": "Complete MERN-Stack Online Store",
   "main": "server.js",
   "scripts": {
     "start": "node server",

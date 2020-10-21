@@ -16,4 +16,6 @@ export const CHANGE_PASSWORD_FAIL = 'CHANGE_PASSWORD_FAIL';
 export const LOGOUT = 'LOGOUT';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const PRODUCT_ERROR = 'PRODUCT_ERROR';
