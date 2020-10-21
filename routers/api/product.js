@@ -75,7 +75,10 @@ router.post(
         filePath: `/uploads/${Date.now() + imageSource.name}`,
       };
 
-      if (reqData.mimeType !== 'image/png' || reqData.mimeType !== 'image/jpeg') {
+      if (
+        // reqData.mimeType !== 'image/png' ||
+        reqData.mimeType !== 'image/jpeg'
+      ) {
         return res.status(400).json({
           errors: [{ msg: 'Please, upload only JPEG, JPG, PNG images' }],
         });
@@ -97,9 +100,7 @@ router.post(
         status,
         description,
         user: req.user.id,
-        category: Array.isArray(category)
-          ? category
-          : category.split(',').map((cat) => ' ' + cat.trim()),
+        category,
         imageSource: reqData,
       });
 
@@ -115,15 +116,14 @@ router.post(
   }
 );
 
-
-
 // @route    PUT api/product
 // @desc     Update a product
 // @access   Private
 router.put(
   '/:id',
   [
-    auth, checkObjectId('id'),
+    auth,
+    checkObjectId('id'),
     [
       check('name', 'Product name is required').not().isEmpty(),
       check('category', 'Category is required').not().isEmpty(),
@@ -151,8 +151,6 @@ router.put(
     const imageSource = req.files.imageSource;
 
     try {
-
-
       const productExist = await Product.findById(req.params.id);
 
       const reqData = {
@@ -162,7 +160,7 @@ router.put(
         filePath: `/uploads/${Date.now() + imageSource.name}`,
       };
 
-      if ((reqData.mimeType !== 'image/png')) {
+      if (reqData.mimeType !== 'image/png') {
         return res.status(400).json({
           errors: [{ msg: 'Please, upload only JPEG, JPG, PNG images' }],
         });
@@ -191,7 +189,6 @@ router.put(
         )
       );
 
-
       await Product.findOneAndUpdate(
         { _id: req.params.id },
         {
@@ -202,14 +199,11 @@ router.put(
             status,
             description,
             user: req.user.id,
-            category: Array.isArray(category)
-              ? category
-              : category.split(',').map((cat) => ' ' + cat.trim()),
+            category,
             imageSource: reqData,
           },
         }
       );
-
 
       res.json(
         await Product.find().sort({ date: -1 }).populate('user', ['name'])
@@ -220,8 +214,6 @@ router.put(
     }
   }
 );
-
-
 
 // @route    DELETE api/product
 // @desc     Update a product

@@ -15,31 +15,38 @@ const ProductForm = ({ addProduct }) => {
     stock: '',
     price: '',
     status: '',
-    imageSource: '',
   });
 
-  const {
-    name,
-    category,
-    description,
-    stock,
-    price,
-    status,
-    imageSource,
-  } = formData;
+  const [imageSource, setImageSource] = useState('');
+  const [filename, setFilename] = useState('Choose file...');
+
+  const { name, category, description, stock, price, status } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const onChangeFile = (e) => {
+    setImageSource(e.target.files[0]);
+    setFilename(e.target.files[0].name);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-  };
+    console.log(imageSource);
+    // addProduct(formData)
 
-  // Redirect if logged in
-  // if (isAuthenticated) {
-  //   return <Redirect to="/dashboard" />;
-  // }
+    const formResultData = new FormData();
+    formResultData.append('name', name);
+    formResultData.append('category', category);
+    formResultData.append('description', description);
+    formResultData.append('stock', stock);
+    formResultData.append('price', price);
+    formResultData.append('status', status);
+    formResultData.append('imageSource', imageSource);
+
+    addProduct(formResultData);
+  };
 
   return (
     <div>
@@ -119,24 +126,6 @@ const ProductForm = ({ addProduct }) => {
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
               <div className='input-group shadow'>
                 <span className='input-group-text' id='basic-addon1'>
-                  <FaceIcon />
-                </span>
-                <textarea
-                  rows='5'
-                  cols='30'
-                  name='description'
-                  value={description}
-                  onChange={(e) => onChange(e)}
-                  type='number'
-                  className='form-control py-2'
-                  placeholder='Enter description'
-                />
-              </div>
-            </div>
-
-            <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
-                <span className='input-group-text' id='basic-addon1'>
                   <SupervisorAccountIcon />
                 </span>
                 <select
@@ -159,14 +148,31 @@ const ProductForm = ({ addProduct }) => {
                 <span className='input-group-text' id='basic-addon1'>
                   <FaceIcon />
                 </span>
-                <input
-                  name='imageSource'
-                  value={imageSource}
+                <textarea
+                  rows='5'
+                  cols='30'
+                  name='description'
+                  value={description}
                   onChange={(e) => onChange(e)}
                   type='number'
                   className='form-control py-2'
-                  placeholder='Enter imageSource'
+                  placeholder='Enter description'
                 />
+              </div>
+            </div>
+
+            <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
+              <div className='form-file'>
+                <input
+                  type='file'
+                  className='form-file-input py2'
+                  id='customFile'
+                  onChange={(e) => onChangeFile(e)}
+                />
+                <label className='form-file-label' htmlFor='customFile'>
+                  <span className='form-file-text'>{filename}</span>
+                  <span className='form-file-button'>Browse</span>
+                </label>
               </div>
             </div>
 

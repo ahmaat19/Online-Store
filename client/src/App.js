@@ -58,7 +58,7 @@ const App = () => {
             <AdminPrivateRoute path='/register' component={Register} />
             <PrivateRoute path='/change-password' component={ChangePassword} />
             <Route exact path='/' component={Dashboard} />
-            <Route path='/product' component={ProductForm} />
+            <AdminPrivateRoute path='/product' component={ProductForm} />
             <Route path='/collection' component={Collection} />
             <Route path='/product-details/:id' component={ProductDetails} />
           </Layout>
