@@ -19,9 +19,9 @@ const Dashboard = ({ getProducts, product_obj: { products, loading } }) => {
     <Spinner />
   ) : (
     <div className=''>
-      <Hero />
-      <Arrivals products={products} />
-      <Subscribe />
+      {/* <Hero /> */}
+      {/* <Arrivals products={products} /> */}
+      {/* <Subscribe /> */}
     </div>
   );
 };

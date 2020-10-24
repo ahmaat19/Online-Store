@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
+import './Main.css';
 
 import Login from './components/auth/Login';
 import ChangePassword from './components/auth/ChangePassword';
@@ -57,9 +58,9 @@ const App = () => {
             <Route path='/login' component={Login} />
             <AdminPrivateRoute path='/register' component={Register} />
             <PrivateRoute path='/change-password' component={ChangePassword} />
-            <Route exact path='/' component={Dashboard} />
+            {/* <Route exact path='/' component={Dashboard} /> */}
             <AdminPrivateRoute path='/product' component={ProductForm} />
-            <Route path='/collection' component={Collection} />
+            <Route exact path='/' component={Collection} />
             <Route path='/product-details/:id' component={ProductDetails} />
           </Layout>
         </Switch>

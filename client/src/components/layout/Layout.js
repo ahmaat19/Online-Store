@@ -12,6 +12,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MenuIcon from '@material-ui/icons/Menu';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import SearchIcon from '@material-ui/icons/Search';
 import Footer from '../Footer';
 
 const Navbar = ({
@@ -23,30 +24,15 @@ const Navbar = ({
     <ul className='navbar-nav mr-right mb-2 mb-lg-0'>
       <li className='nav-item'>
         {' '}
-        <a href='?#' className='nav-link'>
+        <a href='/' className='nav-link disabled'>
           {' '}
           Welcome {user && user.name}
         </a>
       </li>
 
       <li className='nav-item'>
-        <Link to='/collection' className='nav-link'>
-          Products
-        </Link>
-      </li>
-      <li className='nav-item'>
         <Link to='/product' className='nav-link'>
-          Form
-        </Link>
-      </li>
-      <li className='nav-item'>
-        <Link to='/' className='nav-link'>
-          About
-        </Link>
-      </li>
-      <li className='nav-item'>
-        <Link to='/' className='nav-link'>
-          Contact
+          Products
         </Link>
       </li>
 
@@ -76,41 +62,24 @@ const Navbar = ({
 
   const guestLinks = (
     <>
-      <ul className='navbar-nav mr-auto mb-2 py-3 mb-lg-0'>
-        <li className='nav-item'>
-          <Link to='/collection' className='nav-link'>
-            Products
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/' className='nav-link'>
-            About
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/' className='nav-link'>
-            Contact
-          </Link>
-        </li>
-      </ul>
-
-      {/* <ul className='navbar-nav mr-right mb-2 mb-lg-0'>
-        <li className='nav-item'>
-          <Link to='/login' onClick={logout} className='nav-link'>
-            <ExitToAppIcon fontSize='small' />
-            Login
-          </Link>
-        </li>
-      </ul> */}
+      <ul className='navbar-nav mr-auto mb-2 py-3 mb-lg-0'></ul>
     </>
   );
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg py-3 shadow-lg sticky-top'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light shadow sticky-top'>
         <div className='container'>
+          <Link to='/' className='navbar-brand font-weight-bold display-6'>
+            <img
+              src='https://lh3.googleusercontent.com/proxy/ahAQ--6kP9cICfzHiadDlCzrUtkYdmEKcfBv0SEZW1DExzOAfkRWOuheE4AYkYXYEBwLn2oQvfaRlU8NszstWs3-sBi1w-SOugnkJpceiXkzSw'
+              width='60'
+              height='auto'
+              class='d-inline-block align-top'
+            />
+          </Link>
           <button
-            className='navbar-toggler'
+            className='navbar-toggler shadow-none'
             type='button'
             data-toggle='collapse'
             data-target='#navbarToggler'
@@ -118,34 +87,41 @@ const Navbar = ({
             aria-expanded='false'
             aria-label='Toggle navigation'
           >
-            <span className='navbar-toggler-icon'>
-              <MenuIcon fontSize='large' />
-            </span>
+            <span className='navbar-toggler-icon'></span>
           </button>
-          <Link to='/' className='navbar-brand'>
-            <img
-              src='https://avatars0.githubusercontent.com/u/25323389?s=400&v=4'
-              width='30'
-              height='30'
-              className='d-inline-block align-top mr-2 mt-2'
-              alt=''
-              loading='lazy'
-            />
-            BOILERPLATE
-          </Link>
           <div className='collapse navbar-collapse' id='navbarToggler'>
-            <ul className='navbar-nav mr-auto mb-2 mb-lg-0'></ul>
-
-            {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+            <ul className='navbar-nav mx-auto mb-2 mb-lg-0'></ul>
+            <ul className='navbar-nav mx-right mb-2 mb-lg-0'>
+              {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+            </ul>
+            {!loading && (
+              <>
+                {isAuthenticated ? (
+                  ''
+                ) : (
+                  <form className='d-flex'>
+                    <input
+                      className='form-control mr-2 shadow-none'
+                      type='search'
+                      placeholder='Search'
+                      aria-label='Search'
+                    />
+                    <button className='btn btn-outline-secondary' type='submit'>
+                      <SearchIcon />
+                    </button>
+                  </form>
+                )}
+              </>
+            )}
           </div>
         </div>
       </nav>
 
       <div className=''>{children}</div>
 
-      <Delivery />
-
-      <Footer />
+      {/* <Delivery /> */}
+      {/*  */}
+      {/* <Footer /> */}
 
       <div className='text-muted card-footer pt-20  text-center footer'>
         Developer Contact -{' '}

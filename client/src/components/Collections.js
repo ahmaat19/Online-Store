@@ -7,9 +7,16 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import InfoIcon from '@material-ui/icons/Info';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import EditIcon from '@material-ui/icons/Edit';
 import Spinner from './layout/Spinner';
 
-const Collections = ({ getProducts, product_obj: { products, loading } }) => {
+const Collections = ({
+  auth: { isAuthenticated },
+  getProducts,
+  product_obj: { products, loading },
+}) => {
   useEffect(() => {
     getProducts();
   }, [getProducts]);
@@ -18,84 +25,70 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
     <Spinner />
   ) : (
     <div className='container'>
-      <p className=' display-6 text-muted mt-5 text-center'> PRODUCTS </p>
-
+      <p className=' display-6 text-muted my-3 text-center'>PRODUCTS</p>
+      <hr />
       <div className='row gy-4'>
         {products &&
           products.map((product) => {
             return (
-              <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
-                <div className='carousel slide' data-ride='carousel'>
-                  <div className='carousel-inner'>
-                    <div className='carousel-item '>
-                      <img
-                        src={product.imageSource.filePath}
-                        className='d-block w-100'
-                        alt='...'
-                      />
-                    </div>
-                    <div className='carousel-item active'>
-                      <img
-                        src={product.imageSource.filePath}
-                        className='d-block w-100'
-                        alt='...'
-                      />
-                    </div>
+              <div
+                key={product._id}
+                className='col-lg-3 col-md-4 col-sm-6 col-12'
+              >
+                <div className='card border-0 shadow'>
+                  <div className='inner-card-img'>
+                    <img
+                      src={product.imageSource.filePath}
+                      className='card-img-top'
+                      alt='...'
+                    />
                   </div>
 
-                  <a
-                    className='carousel-control-prev'
-                    href=''
-                    role='button'
-                    data-slide='prev'
-                  >
-                    <span
-                      className='carousel-control-prev-icon'
-                      aria-hidden='true'
-                    ></span>
-                    <span className='visually-hidden'></span>
-                  </a>
+                  <div className='card-body text-center'>
+                    <h6 className='text-muted category-title text-uppercase'>
+                      {product.category}
+                    </h6>
+                    <Link
+                      to={`/product-details/${product._id}`}
+                      className='link-title'
+                    >
+                      <strong className='card-title text-muted'>
+                        {product.name}
+                      </strong>
+                    </Link>
+                    <p className='card-text'>
+                      <img
+                        src='https://emdoesbookreviews.files.wordpress.com/2014/12/five-stars.png'
+                        alt=''
+                        className='rate-stars'
+                      />
+                    </p>
 
-                  <a
-                    className='carousel-control-next'
-                    href=''
-                    role='button'
-                    data-slide='next'
-                  >
-                    <span
-                      className='carousel-control-next-icon'
-                      aria-hidden='true'
-                    ></span>
-                    <span className='visually-hidden'></span>
-                  </a>
-                </div>
-                <h6 className='pt-3 text-center'>{product.name}</h6>
-                <div className='content-price d-flex px-5 align-self-stretch justify-content-center'>
-                  <ButtonGroup>
-                    <Link to={`product-details/${product._id}`}>
-                      <Button variant='contained' color='primary'>
-                        ${product.price}
-                      </Button>
-                    </Link>
-                    <Link to={`product-details/${product._id}`}>
-                      <Button
-                        variant='contained'
-                        startIcon={<ShoppingCartIcon />}
-                        color='secondary'
-                      >
-                        BUY
-                      </Button>
-                    </Link>
-                    <Link to={`product-details/${product._id}`}>
-                      <Button
-                        variant='contained'
-                        startIcon={<InfoIcon />}
-                        color='secondary'
-                      >
-                        DETAILS
-                      </Button>
-                    </Link>
-                  </ButtonGroup>
+                    <h5 className='price text-info'>
+                      ${product.price}
+                      <span className='text-muted sub-price'>/price</span>
+                    </h5>
+                    <button className='btn btn-info btn-sm form-control'>
+                      <AddShoppingCartIcon />
+                      ORDER
+                    </button>
+                    {!loading && (
+                      <>
+                        {isAuthenticated && (
+                          <>
+                            <div className='action-admin-btn mt-1'>
+                              <button className='btn btn-outline-success btn-sm form-control mr-1'>
+                                <EditIcon fontSize='small' />
+                              </button>
+                              <button className='btn btn-outline-danger btn-sm form-control ml-1'>
+                                <DeleteIcon fontSize='small' />
+                              </button>
+                            </div>
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -107,10 +100,12 @@ const Collections = ({ getProducts, product_obj: { products, loading } }) => {
 
 Collections.propTypes = {
   product_obj: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   product_obj: state.product,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getProducts })(Collections);

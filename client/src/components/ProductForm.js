@@ -50,13 +50,16 @@ const ProductForm = ({ addProduct }) => {
 
   return (
     <div>
-      <div className='container__body'>
+      <div className='container'>
         <form onSubmit={(e) => onSubmit(e)}>
-          <div className='row'>
-            <h3 className='text-center form-title mb-4'>Add Product</h3>
+          <div className='row '>
+            <p className=' display-6 text-muted my-3 text-center'>
+              PRODUCT REGISTRATION
+            </p>
+            <hr />
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <FaceIcon />
                 </span>
@@ -65,14 +68,14 @@ const ProductForm = ({ addProduct }) => {
                   value={name}
                   onChange={(e) => onChange(e)}
                   type='text'
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                   placeholder='Enter product name'
                 />
               </div>
             </div>
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <SupervisorAccountIcon />
                 </span>
@@ -80,7 +83,7 @@ const ProductForm = ({ addProduct }) => {
                   name='category'
                   value={category}
                   onChange={(e) => onChange(e)}
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                 >
                   <option value='' disabled>
                     Category...
@@ -92,7 +95,7 @@ const ProductForm = ({ addProduct }) => {
             </div>
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <FaceIcon />
                 </span>
@@ -101,14 +104,14 @@ const ProductForm = ({ addProduct }) => {
                   value={stock}
                   onChange={(e) => onChange(e)}
                   type='number'
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                   placeholder='Enter quantity'
                 />
               </div>
             </div>
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <FaceIcon />
                 </span>
@@ -117,14 +120,14 @@ const ProductForm = ({ addProduct }) => {
                   value={price}
                   onChange={(e) => onChange(e)}
                   type='number'
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                   placeholder='Enter price'
                 />
               </div>
             </div>
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <SupervisorAccountIcon />
                 </span>
@@ -132,7 +135,7 @@ const ProductForm = ({ addProduct }) => {
                   name='status'
                   value={status}
                   onChange={(e) => onChange(e)}
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                 >
                   <option value='' disabled>
                     Status...
@@ -144,7 +147,7 @@ const ProductForm = ({ addProduct }) => {
             </div>
 
             <div className='col-lg-7 col-sm-12 mx-auto mb-3'>
-              <div className='input-group shadow'>
+              <div className='input-group '>
                 <span className='input-group-text' id='basic-addon1'>
                   <FaceIcon />
                 </span>
@@ -155,7 +158,7 @@ const ProductForm = ({ addProduct }) => {
                   value={description}
                   onChange={(e) => onChange(e)}
                   type='number'
-                  className='form-control py-2'
+                  className='form-control py-2 shadow-none '
                   placeholder='Enter description'
                 />
               </div>
@@ -165,7 +168,7 @@ const ProductForm = ({ addProduct }) => {
               <div className='form-file'>
                 <input
                   type='file'
-                  className='form-file-input py2'
+                  className='form-file-input py-2 shadow-none'
                   id='customFile'
                   onChange={(e) => onChangeFile(e)}
                 />
@@ -180,7 +183,7 @@ const ProductForm = ({ addProduct }) => {
               <div className='input-group mx-auto d-block text-right'>
                 <button
                   type='submit'
-                  className='btn-submit btn btn-primary shadow p-2 px-4'
+                  className='btn-submit btn btn-primary  p-2 px-4'
                 >
                   CREATE
                 </button>
