@@ -36,7 +36,7 @@ if (localStorage.token) {
 //     </h3>
 //   </div>
 // );
-const App = () => {
+const App = (props) => {
   useEffect(() => {
     // check for token in LS
     if (localStorage.token) {

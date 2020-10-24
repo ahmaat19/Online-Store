@@ -68,14 +68,14 @@ const Navbar = ({
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light shadow sticky-top'>
+      <nav className='navbar navbar-expand-md navbar-light bg-light shadow sticky-top'>
         <div className='container'>
           <Link to='/' className='navbar-brand font-weight-bold display-6'>
             <img
               src='https://lh3.googleusercontent.com/proxy/ahAQ--6kP9cICfzHiadDlCzrUtkYdmEKcfBv0SEZW1DExzOAfkRWOuheE4AYkYXYEBwLn2oQvfaRlU8NszstWs3-sBi1w-SOugnkJpceiXkzSw'
               width='60'
               height='auto'
-              class='d-inline-block align-top'
+              className='d-inline-block align-top'
             />
           </Link>
           <button
@@ -123,7 +123,7 @@ const Navbar = ({
       {/*  */}
       {/* <Footer /> */}
 
-      <div className='text-muted card-footer pt-20  text-center footer'>
+      <div className='text-muted card-footer my-5  text-center footer'>
         Developer Contact -{' '}
         <strong>
           <a href='mailto:ahmaat19@gmail.com'>ahmaat19@gmail.com</a>

@@ -19,7 +19,7 @@ const ProductForm = ({ addProduct }) => {
 
   const [imageSource, setImageSource] = useState('');
   const [filename, setFilename] = useState('Choose file...');
-
+  console.log(imageSource);
   const { name, category, description, stock, price, status } = formData;
 
   const onChange = (e) =>

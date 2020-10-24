@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getProducts } from '../actions/product';
+import { getProducts, updateProduct, deleteProduct } from '../actions/product';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import InfoIcon from '@material-ui/icons/Info';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import EditIcon from '@material-ui/icons/Edit';
 import Spinner from './layout/Spinner';
+import ProductForm from './ProductForm';
 
 const Collections = ({
   auth: { isAuthenticated },
-  getProducts,
   product_obj: { products, loading },
+  getProducts,
+  deleteProduct,
 }) => {
   useEffect(() => {
     getProducts();
@@ -26,7 +28,51 @@ const Collections = ({
   ) : (
     <div className='container'>
       <p className=' display-6 text-muted my-3 text-center'>PRODUCTS</p>
+      {!loading && (
+        <>
+          {isAuthenticated && (
+            <div className='text-center'>
+              <button
+                type='button'
+                className='btn btn-outline-info'
+                data-toggle='modal'
+                data-target='#ProductFormModal'
+              >
+                <AddCircleIcon />
+              </button>
+            </div>
+          )}
+        </>
+      )}
+
       <hr />
+
+      {/* Modal */}
+
+      <div
+        className='modal fade'
+        id='ProductFormModal'
+        tabIndex='-1'
+        aria-labelledby='ProductFormModalLabel'
+        aria-hidden='true'
+      >
+        <div className='modal-dialog modal-lg'>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <button
+                type='button'
+                className='btn-close'
+                data-dismiss='modal'
+                aria-label='Close'
+              ></button>
+            </div>
+            <div className='modal-body'>
+              {' '}
+              <ProductForm />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className='row gy-4'>
         {products &&
           products.map((product) => {
@@ -80,7 +126,10 @@ const Collections = ({
                               <button className='btn btn-outline-success btn-sm form-control mr-1'>
                                 <EditIcon fontSize='small' />
                               </button>
-                              <button className='btn btn-outline-danger btn-sm form-control ml-1'>
+                              <button
+                                onClick={() => deleteProduct(product._id)}
+                                className='btn btn-outline-danger btn-sm form-control ml-1'
+                              >
                                 <DeleteIcon fontSize='small' />
                               </button>
                             </div>
@@ -101,6 +150,8 @@ const Collections = ({
 Collections.propTypes = {
   product_obj: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
+  updateProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -108,4 +159,8 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getProducts })(Collections);
+export default connect(mapStateToProps, {
+  getProducts,
+  updateProduct,
+  deleteProduct,
+})(Collections);

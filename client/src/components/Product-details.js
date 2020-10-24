@@ -74,35 +74,6 @@ const ProductDetails = ({
               )
           )}
       </div>
-
-      {/* <div class='row'>
-        <div className='col-lg-6 col-md-6 col-sm-6 col-12 mx-auto'>
-          <div class='card mb-3' style={{ maxWidth: '540px' }}>
-            <div class='row g-0'>
-              <div class='col-md-4'>
-                <img
-                  className='card-img w-100'
-                  src='http://localhost:3000/uploads/16035311681258.JPG'
-                  alt='...'
-                />
-              </div>
-              <div class='col-md-8'>
-                <div class='card-body'>
-                  <h5 class='card-title text-muted'>Compaq Latest Laptop</h5>
-                  <p class='card-text text-muted'>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p class='card-text'>
-                    <small class='text-muted'>Last updated 3 mins ago</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
