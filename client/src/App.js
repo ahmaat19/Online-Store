@@ -8,8 +8,8 @@ import Login from './components/auth/Login';
 import ChangePassword from './components/auth/ChangePassword';
 import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
-import Dashboard from './components/dashboard/Dashboard';
-import Collection from './components/Collections';
+// import Dashboard from './components/dashboard/Dashboard';
+import Products from './components/Products';
 
 import { loadUser } from './actions/auth';
 import { LOGOUT } from './actions/types';
@@ -21,7 +21,7 @@ import AdminPrivateRoute from './components/routes/AdminPrivateRoute';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import Layout from './components/layout/Layout';
-import ProductDetails from './components/Product-details';
+import ProductDetails from './components/ProductDetails';
 import ProductForm from './components/ProductForm';
 
 if (localStorage.token) {
@@ -36,7 +36,7 @@ if (localStorage.token) {
 //     </h3>
 //   </div>
 // );
-const App = (props) => {
+const App = () => {
   useEffect(() => {
     // check for token in LS
     if (localStorage.token) {
@@ -58,9 +58,8 @@ const App = (props) => {
             <Route path='/login' component={Login} />
             <AdminPrivateRoute path='/register' component={Register} />
             <PrivateRoute path='/change-password' component={ChangePassword} />
-            {/* <Route exact path='/' component={Dashboard} /> */}
             <AdminPrivateRoute path='/product' component={ProductForm} />
-            <Route exact path='/' component={Collection} />
+            <Route exact path='/' component={Products} />
             <Route path='/product-details/:id' component={ProductDetails} />
           </Layout>
         </Switch>

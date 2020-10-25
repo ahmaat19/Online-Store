@@ -4,16 +4,12 @@ import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import logo from './logo.jpg';
-import Delivery from '../Delivery';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Material UI Icons
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import MenuIcon from '@material-ui/icons/Menu';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import SearchIcon from '@material-ui/icons/Search';
-import Footer from '../Footer';
 
 const Navbar = ({
   logout,
@@ -28,12 +24,6 @@ const Navbar = ({
           {' '}
           Welcome {user && user.name}
         </a>
-      </li>
-
-      <li className='nav-item'>
-        <Link to='/product' className='nav-link'>
-          Products
-        </Link>
       </li>
 
       <li className='nav-item'>
@@ -52,7 +42,7 @@ const Navbar = ({
       )}
 
       <li className='nav-item'>
-        <Link to='/login' onClick={logout} className='nav-link'>
+        <Link to='/' onClick={logout} className='nav-link'>
           <ExitToAppIcon fontSize='small' />
           Logout
         </Link>
@@ -62,7 +52,14 @@ const Navbar = ({
 
   const guestLinks = (
     <>
-      <ul className='navbar-nav mr-auto mb-2 py-3 mb-lg-0'></ul>
+      <ul className='navbar-nav mr-auto mb-2 py-3 mb-lg-0'>
+        <li className='nav-item'>
+          <Link to='/login' className='nav-link'>
+            <ExitToAppIcon fontSize='small' />
+            Login
+          </Link>
+        </li>
+      </ul>
     </>
   );
 
@@ -76,6 +73,7 @@ const Navbar = ({
               width='60'
               height='auto'
               className='d-inline-block align-top'
+              alt='brand'
             />
           </Link>
           <button
@@ -94,34 +92,11 @@ const Navbar = ({
             <ul className='navbar-nav mx-right mb-2 mb-lg-0'>
               {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
             </ul>
-            {!loading && (
-              <>
-                {isAuthenticated ? (
-                  ''
-                ) : (
-                  <form className='d-flex'>
-                    <input
-                      className='form-control mr-2 shadow-none'
-                      type='search'
-                      placeholder='Search'
-                      aria-label='Search'
-                    />
-                    <button className='btn btn-outline-secondary' type='submit'>
-                      <SearchIcon />
-                    </button>
-                  </form>
-                )}
-              </>
-            )}
           </div>
         </div>
       </nav>
 
       <div className=''>{children}</div>
-
-      {/* <Delivery /> */}
-      {/*  */}
-      {/* <Footer /> */}
 
       <div className='text-muted card-footer my-5  text-center footer'>
         Developer Contact -{' '}

@@ -19,7 +19,7 @@ const ProductForm = ({ addProduct }) => {
 
   const [imageSource, setImageSource] = useState('');
   const [filename, setFilename] = useState('Choose file...');
-  console.log(imageSource);
+
   const { name, category, description, stock, price, status } = formData;
 
   const onChange = (e) =>
@@ -32,10 +32,6 @@ const ProductForm = ({ addProduct }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    console.log(imageSource);
-    // addProduct(formData)
-
     const formResultData = new FormData();
     formResultData.append('name', name);
     formResultData.append('category', category);
@@ -90,6 +86,7 @@ const ProductForm = ({ addProduct }) => {
                   </option>
                   <option value='Mobile'>Mobile</option>
                   <option value='Laptop'>Laptop</option>
+                  <option value='Tablet'>Tablet</option>
                 </select>
               </div>
             </div>

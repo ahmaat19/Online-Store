@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import Spinner from './layout/Spinner';
 import { connect } from 'react-redux';
@@ -23,17 +22,15 @@ const ProductDetails = ({
     <div className='container'>
       <div className='row '>
         <p className=' display-6 text-muted my-3 text-center'>
-          PRODUCT DETAILS <hr />
+          PRODUCT DETAILS
         </p>
+        <hr />
         {products &&
           products.map(
             (product) =>
               product._id === match.params.id && (
-                <>
-                  <div
-                    className='col-lg-5 col-md-6 col-sm-6 col-12 mx-auto my-auto'
-                    key={product._id}
-                  >
+                <div className='row' key={product._id}>
+                  <div className='col-lg-5 col-md-6 col-sm-6 col-12 mx-auto my-auto'>
                     <div className=''>
                       <img
                         src={product.imageSource.filePath}
@@ -70,7 +67,7 @@ const ProductDetails = ({
                       </a>
                     </div>
                   </div>
-                </>
+                </div>
               )
           )}
       </div>
