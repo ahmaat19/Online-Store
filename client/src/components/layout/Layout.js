@@ -69,7 +69,7 @@ const Navbar = ({
         <div className='container'>
           <Link to='/' className='navbar-brand font-weight-bold display-6'>
             <img
-              src='https://lh3.googleusercontent.com/proxy/ahAQ--6kP9cICfzHiadDlCzrUtkYdmEKcfBv0SEZW1DExzOAfkRWOuheE4AYkYXYEBwLn2oQvfaRlU8NszstWs3-sBi1w-SOugnkJpceiXkzSw'
+              src='https://yt3.ggpht.com/a/AATXAJwARvSQUG4eevTtAIp4KBue8ErEwwkBp3aJw_22=s900-c-k-c0x00ffffff-no-rj'
               width='60'
               height='auto'
               className='d-inline-block align-top'

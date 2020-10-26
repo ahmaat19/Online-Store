@@ -9,6 +9,11 @@ svg {
   height: auto;
 }
 
+/* Navbar */
+.navbar-brand img {
+  border-radius: 100%;
+}
+
 /* Product Card Design */
 .category-title {
   font-size: small;
